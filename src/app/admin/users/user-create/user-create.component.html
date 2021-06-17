@@ -1,0 +1,540 @@
+
+
+<style type="text/css">
+    .form-group {
+    position: relative;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+}
+
+.form-group.form-group-divider {
+    background-color: #eeeeee;
+    padding: 0px;
+    margin-bottom: 0px;
+}
+
+.form-group.form-group-divider .form-inner {
+    border-left: 5px solid #71a117;
+    padding-left: 15px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+</style>
+<section id="page-content">
+    <div class="body-content animated fadeIn">
+        <div class="row">
+            <!-- <div class="col-md-2"></div> -->
+            <div class="col-md-12 emps">
+
+              
+                   <h2 class="tophs">Add Employee</h2>
+
+                <div class="panel rounded shadow no-overflow">
+                    <div class="panel-body no-padding">
+                        <div class="form-horizontal form-bordered">
+                            <div class="form-group form-group-divider">
+                                <div class="form-inner">
+                                    <h3 class="no-margin">Personal</h3>
+                                </div>
+                            </div>
+                            <div class="form-body">
+                               
+
+
+                               <form [formGroup]="registerForm" (ngSubmit)="registerUser()">
+
+
+                               <div class="row inlineform">
+                                <div class="form-group ">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">First Name <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" formControlName="name"   class="form-control rounded">
+                                        
+                                    </div>
+
+
+                                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                      class="form-text text-muted">
+                                    <div *ngIf="name.errors?.required">
+                                      Name is required.
+                                    </div>
+                                    <div *ngIf="name.errors?.minlength">
+                                      Name must be at least 5 characters long.
+                                    </div>
+                              </div> 
+                              <small id="emailHelp" class="form-text text-muted" *ngIf="serverErrors">{{ serverErrors.name }}</small>
+
+                                </div>
+                               <!--  <div class="form-group">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Last Name <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text"   class="form-control rounded">
+                                        
+                                    </div>
+                                </div> -->
+
+
+                                 <div class="form-group">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Email <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" formControlName="email"  class="form-control rounded">
+                                        
+                                    </div>
+
+                                     <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                                      class="form-text text-muted">
+                                    <div *ngIf="email.errors?.required">
+                                      Email is required.
+                                    </div>
+                                    <div *ngIf="email.errors?.email">
+                                      Invalid email address.
+                                    </div>
+                              </div> 
+  
+                              <small id="emailHelp" class="form-text text-muted" *ngIf="serverErrors">{{ serverErrors.email }}</small>
+                                </div>
+
+
+                            </div>
+
+
+
+                              <div class="row inlineform">
+
+                               <!--  <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">User Name <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control rounded">
+                                       
+                                    </div>
+                                </div> -->
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Password <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="password" formControlName="password"  class="form-control rounded">
+
+                                        
+                                          <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                                      class="form-text text-muted">
+                                    <div *ngIf="password.errors?.required">
+                                      Password is required.
+                                    </div>
+                                    <div *ngIf="password.errors?.minlength">
+                                      Password must be at least 5 characters long.
+                                    </div>
+                              </div>
+  
+                              <small id="emailHelp" class="form-text text-muted" *ngIf="serverErrors">{{ serverErrors.password }}</small>
+
+
+                                    </div>
+
+                                  
+                              
+
+                                </div>
+
+
+                                 <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Confirm Password <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="password" formControlName="confirm_password"  class="form-control rounded">
+                                       
+                                    </div>
+
+
+                                     <div *ngIf="confirm_password.invalid && (confirm_password.dirty || confirm_password.touched)"
+                                      class="form-text text-muted">
+                                    <div *ngIf="confirm_password.errors?.required">
+                                      Confirm Password is required.
+                                    </div>
+                                    <div *ngIf="confirm_password.errors?.minlength">
+                                      Confirm Password must be at least 5 characters long.
+                                    </div>
+                              </div>
+  
+                              <small id="emailHelp" class="form-text text-muted" *ngIf="serverErrors">{{ serverErrors.confirm_password }}</small>
+                              
+
+                                </div>
+
+
+                               </div>
+
+
+                              <div class="row inlineform">
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Gender</label>
+                                    <div class="col-sm-7">
+                                        <select formControlName="gender"  class="form-control rounded">
+                                            <option value="" disabled>Choose Gender</option>
+                                            <option value="male" >Male</option>
+                                            <option value="female" >Female</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Date Of Birth <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input formControlName="dob" type="date"  class="form-control rounded">
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+
+                              <div class="row inlineform">
+
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Mobile</label>
+                                    <div class="col-sm-7">
+                                        <input type="tel"  class="form-control rounded">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Address</label>
+                                    <div class="col-sm-7">
+                                        <textarea  class="form-control rounded"></textarea>
+                                    </div>
+                                </div>
+
+                            </div>
+                              <div class="row inlineform">
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Marital Status</label>
+                                    <div class="col-sm-7">
+                                        <select  class="form-control rounded">
+                                            <option value="" disabled>Select Status</option>
+                                            <option value="male">Male</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Nationality</label>
+                                    <div class="col-sm-7">
+                                        <select  class="form-control rounded">
+                                            <option value="" disabled>Select Nationality</option>
+                                            <option  value="india">india</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                </div>
+
+                                <div class="form-group form-group-divider">
+                                    <div class="form-inner">
+                                        <h3 class="no-margin">Professional</h3>
+                                    </div>
+                                </div>
+
+                                  <div class="row inlineform">
+
+                                <div class="form-group f1 ">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Staff Id <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text"  class="form-control rounded">
+                                        
+                                    </div>
+                                </div>
+                                <div class='form-group f2'>
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Designation <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <select  class="form-control rounded">
+                                            <option value="" disabled>Select Designation</option>
+                                            <option value="">Staff</option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+
+                              <div class="row inlineform">
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">PWM Grade</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control rounded">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Deployment Grade <span  class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text"  class="form-control rounded">
+                                        
+                                    </div>
+                                </div>
+
+                            </div>
+
+                              <div class="row inlineform">
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Joining Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Confirmation Date <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                       
+                                    </div>
+                                </div>
+
+                            </div>
+
+                              <div class="row inlineform">
+
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">WP Issue Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">WP Expiry Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                              <div class="row inlineform">
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Bank Account</label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control rounded">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Courses Done</label>
+                                    <div class="col-sm-7">
+                                        <table class="table table-striped table-bordered">
+                                            <thead>
+                                                <tr>
+                                                    <th>Course</th>
+                                                    <th><button type="button"  class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td><input type="text"  class="form-control rounded"></td>
+                                                    <td><button type="button"  class="btn btn-danger"><i class="fa fa-times-circle"></i></button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+
+
+                                <div class="form-group form-group-divider">
+                                    <div class="form-inner">
+                                        <h3 class="no-margin">Official</h3>
+                                    </div>
+                                </div>
+
+                                 <div class="row inlineform">
+                                  
+
+                                  <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">User Name <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control rounded">
+                                       
+                                    </div>
+                                </div> 
+
+
+                                 <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Status <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control rounded">
+                                       
+                                    </div>
+                                </div> 
+
+                               <!--  <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">User Name <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" class="form-control rounded">
+                                       
+                                    </div>
+                                </div> -->
+                                <!-- <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Password <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" formControlName="password"  class="form-control rounded">
+                                       
+                                    </div>
+                                </div>
+
+
+                                 <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Confirm Password <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <input type="text" formControlName="password"  class="form-control rounded">
+                                       
+                                    </div>
+                                </div> -->
+
+
+                               </div>
+
+                                 <div class="row inlineform">
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">App Role <span class="asterisk">*</span></label>
+                                    <div class="col-sm-7">
+                                        <select  class="form-control rounded">
+                                            <option value="" disabled>Choose Role</option>
+                                            <option  value=""></option>
+                                        </select>
+                                        
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Profile Picture</label>
+                                    <div class="col-sm-7">
+                                        <input type="file"  class="form-control rounded">
+                                    </div>
+                                </div>
+
+                            </div>
+
+                             <div class="row inlineform">
+
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Employment Contract</label>
+                                    <div class="col-sm-7">
+                                        <input type="file">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Uniform Issue Status</label>
+                                    <div class="col-sm-7">
+                                        <select  class="form-control rounded">
+                                            <option value="" disabled>Choose Issue Status</option>
+                                            <option value="issued">Issued</option>
+                                            <option value="returned">Returned</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                             <div class="row inlineform">
+
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">NOK</label>
+                                    <div class="col-sm-7">
+                                        <input type="text"  class="form-control rounded" >
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Notification Add Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                             <div class="row inlineform">
+
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Notification Cancel Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                    </div>
+                                </div>
+                                <div class="form-group f2">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Resignation Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date"  class="form-control rounded">
+                                    </div>
+                                </div>
+
+                            </div>
+                             
+
+                              <div class="row inlineform">
+
+                                <div class="form-group f1">
+                                    <div class="col-sm-1"></div>
+                                    <label class="col-sm-12 control-label text-left">Termination Date</label>
+                                    <div class="col-sm-7">
+                                        <input type="date" class="form-control rounded">
+                                    </div>
+                                </div>
+
+                            </div>
+                                
+
+                                
+                       <button  style ="margin-left: 50%" type="submit" class="btn btn-primary btn-round" [disabled]="!registerForm.valid">Add Employee</button>
+                   
+                         </form>
+
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</section>
