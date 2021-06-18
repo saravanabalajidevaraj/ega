@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class AuthInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {    
-    // note add this header for CORS pass
+    //aa note add this header for CORS pass
     let token = localStorage.getItem('token');
     let headers = null;
 
