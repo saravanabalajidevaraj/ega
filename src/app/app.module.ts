@@ -1,5 +1,7 @@
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { NgModule } from '@angular/core';
+import { NgModule  } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA  } from '@angular/core';
+//import { NO_ERRORS_SCHEMA  } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { ToastrModule } from 'ngx-toastr';
 import { SidebarModule } from './shared/sidebar/sidebar.module';
@@ -17,12 +19,25 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+
+
+import {AlertService} from './_services/alert.service';
+
+import {DownloadService} from './_services/download.service';
+
+import {UtilService} from './_services/util.service';
+import {PdfViewerModule } from 'ng2-pdf-viewer';
+//import {PdfViewerComponent } from 'ng2-pdf-viewer';
+
+import { ToastyModule } from 'ng2-toasty';
+
 @NgModule({
+schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   declarations: [
     AppComponent,
     AdminLayoutComponent,
     WelcomeLayoutComponent,
-    NavbarComponent
+    NavbarComponent,  
   ],
   imports: [
     BrowserModule,
@@ -36,9 +51,20 @@ import { CommonModule } from '@angular/common';
     NavbarModule,
     ToastrModule.forRoot(),
     FooterModule,
-    FixedPluginModule
+    FixedPluginModule,
+    PdfViewerModule,
+   // PdfViewerComponent 
+   ToastyModule
+  ],
+  exports:[
+   PdfViewerModule
   ],
   providers: [
+      AlertService,
+      DownloadService,
+      UtilService,
+     // PdfViewerComponent,
+     
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]

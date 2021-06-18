@@ -11,7 +11,7 @@ import { UserRestService } from '../user-rest.service';
 export class UserEditComponent implements OnInit {
   updateUser: FormGroup;  
   @Input() data:any;
-  constructor(private route: ActivatedRoute, private userRest: UserRestService, private router: Router) { }
+  constructor(public route: ActivatedRoute, public userRest: UserRestService, public router: Router) { }
 
   ngOnInit() {   
      let id = this.route.snapshot.params.id;

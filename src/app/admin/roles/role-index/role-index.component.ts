@@ -9,7 +9,7 @@ import { RoleRestService } from '../role-rest.service';
 })
 export class RoleIndexComponent implements OnInit {
   roleList: Array<object> = []; 
-  constructor(private route: ActivatedRoute, private roleRest: RoleRestService) { }
+  constructor(public route: ActivatedRoute, public roleRest: RoleRestService) { }
 
   ngOnInit() {
     this.roleList = this.roleRest.getRoles();

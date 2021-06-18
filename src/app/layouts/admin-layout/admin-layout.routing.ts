@@ -12,6 +12,9 @@ import { AuthGuardService } from 'app/auth-guard.service';
 
 import { OverviewComponent } from '../../pages/organization/overview/overview.component';
 import { AchievementsComponent } from '../../pages/organization/achievements/achievements.component';
+import {AppreciationLettersComponent  }       from '../../pages/organization/appreciation-letters/appreciation-letters.component';
+import {GradingStatusComponent  }       from '../../pages/organization/grading-status/grading-status.component';
+
 import { OrganizationChartComponent }       from '../../pages/organization/organization-chart/organization-chart.component';
 
 import { EmployeeDashboardComponent }       from '../../pages/employees/employee-dashboard/employee-dashboard.component';
@@ -24,10 +27,11 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'dashboard', canActivate:[AuthGuardService],      component: DashboardComponent },
 
     //Organization
-    { path: 'overview',        component: OverviewComponent },
-     { path: 'achievements',        component: AchievementsComponent },
-     { path: 'organization-chart',        component: OrganizationChartComponent },
-     
+      { path: 'overview',        component: OverviewComponent },
+      { path: 'achievements',        component: AchievementsComponent },
+      { path: 'organization-chart',        component: OrganizationChartComponent },
+      { path: 'appreciation-letters',           component: AppreciationLettersComponent },
+      { path: 'grading-status',           component: GradingStatusComponent },
 
      //Employee
 

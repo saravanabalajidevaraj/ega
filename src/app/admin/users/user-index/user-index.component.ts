@@ -10,7 +10,7 @@ import { UserRestService } from '../user-rest.service';
 export class UserIndexComponent implements OnInit {
   userList: Array<object> = [];
 
-  constructor(private route: ActivatedRoute, private userRest: UserRestService, private router: Router) { }
+  constructor(public route: ActivatedRoute, public userRest: UserRestService, public router: Router) { }
 
   ngOnInit() {
      this.userRest.getUsers().subscribe(

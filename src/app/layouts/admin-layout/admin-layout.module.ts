@@ -18,8 +18,8 @@ import { OverviewComponent }         from '../../pages/organization/overview/ove
 import { AchievementsComponent }       from '../../pages/organization/achievements/achievements.component';
 
 import { OrganizationChartComponent }       from '../../pages/organization/organization-chart/organization-chart.component';
-
-
+import {GradingStatusComponent  }       from '../../pages/organization/grading-status/grading-status.component';
+import {AppreciationLettersComponent  }       from '../../pages/organization/appreciation-letters/appreciation-letters.component';
 
 import { EmployeeDashboardComponent }       from '../../pages/employees/employee-dashboard/employee-dashboard.component';
 
@@ -29,13 +29,18 @@ import {SiteCreateComponent  }       from '../../pages/sites/site-create/site-cr
 
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {PdfViewerModule } from 'ng2-pdf-viewer';
+
+import { ToastyModule } from 'ng2-toasty';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(AdminLayoutRoutes),
     FormsModule,
-    NgbModule
+    NgbModule,
+    PdfViewerModule,
+    ToastyModule
   ],
   declarations: [
     DashboardComponent,
@@ -48,6 +53,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     NotificationsComponent,
     OverviewComponent,
     AchievementsComponent,
+    AppreciationLettersComponent,
+    GradingStatusComponent,
     OrganizationChartComponent,
     EmployeeDashboardComponent,
     SiteDashboardComponent,

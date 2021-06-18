@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { of, Observable } from 'rxjs';
-
+import { environment } from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
@@ -13,7 +13,7 @@ export class CommonAuthService {
 
   registerUser(form: any){
     console.log(form.value);
-    return this.http.post('https://milletmight.com/lar/api/register', form.value);
+    return this.http.post('${environment.apiUrl}register', form.value);
   }
 
    isAuthonticated(){
@@ -35,12 +35,12 @@ export class CommonAuthService {
   }
 
   logIn(form: any): Observable<any>{
-    return this.http.post('https://milletmight.com/lar/public/api/login', form.value);
+    return this.http.post(`${environment.apiUrl}/login`, form.value);
     //return result;
   }
 
   logout(token: any): Observable<any>{
-    return this.http.post('http://localhost/laravelAngularApi/public/api/logout', {'token': token});
+    return this.http.post('${environment.apiUrl}/logout', {'token': token});
     //return result;
   }
 }

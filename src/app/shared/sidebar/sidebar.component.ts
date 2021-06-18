@@ -20,8 +20,8 @@ export const ROUTES: RouteInfo[] = [
         childMenu: [
             {path: '/overview', title: 'Overview', icon: 'fa fa-angle-double-right', class: ''},
             {path: '/achievements', title: 'Awards & Achievements', icon: 'fa fa-angle-double-right', class: ''},
-            {path: '/dashboard', title: 'Client Appreciation', icon: 'fa fa-angle-double-right', class: ''},
-            {path: '/dashboard', title: 'Grading Status', icon: 'fa fa-angle-double-right', class: ''},
+            {path: '/appreciation-letters', title: 'Client Appreciation', icon: 'fa fa-angle-double-right', class: ''},
+            {path: '/grading-status', title: 'Grading Status', icon: 'fa fa-angle-double-right', class: ''},
             {path: '/organization-chart', title: 'Organization Chart', icon: 'fa fa-angle-double-right', class: ''},
         ]
     },
