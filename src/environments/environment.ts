@@ -7,5 +7,6 @@ export const environment = {
   production: false,
 
   //apiUrl: 'https://milletmight.com/lar/public/api/'
- //apiUrl:'http://localhost/ega/laravel/public/api'
+ apiUrl:'http://localhost/ega/laravel/public/api'
+ //http://localhost/ega/laravel/public/api/
 };

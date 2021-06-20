@@ -31,20 +31,20 @@ export const ROUTES: RouteInfo[] = [
             {path: '/users', title: 'Add Employee', icon: 'fa fa-angle-double-right', class: ''},
              {path: '/employee-dashboard', title: 'Employee Dashboard', icon: 'fa fa-angle-double-right', class: ''},
 
-            {path: '/roles', title: 'Attendance Report', icon: 'fa fa-angle-double-right', class: ''},
-            {path: '/roles', title: 'Vacation', icon: 'fa fa-angle-double-right', class: ''},
+         //   {path: '/roles', title: 'Attendance Report', icon: 'fa fa-angle-double-right', class: ''},
+        //    {path: '/roles', title: 'Vacation', icon: 'fa fa-angle-double-right', class: ''},
         ]
     },
 
       { path: '', title: 'Site Management', icon:'nc-refresh-69', class: '', 
         childMenu: [
             {path: '/site-create', title: 'Add Site', icon: 'fa fa-angle-double-right', class: ''},
-             {path: '/site-dashboard', title: 'Site Dashboard', icon: 'fa fa-angle-double-right', class: ''},
+         //    {path: '/site-dashboard', title: 'Site Dashboard', icon: 'fa fa-angle-double-right', class: ''},
 
-            {path: '/#', title: 'Client Satisfactory', icon: 'fa fa-angle-double-right', class: ''},
-            {path: '/#', title: 'Clocking Report', icon: 'fa fa-angle-double-right', class: ''},
-            {path: '/#', title: 'Occurrence Book', icon: 'fa fa-angle-double-right', class: ''},
-            {path: '/#', title: 'Back Fill', icon: 'fa fa-angle-double-right', class: ''},
+         //   {path: '/#', title: 'Client Satisfactory', icon: 'fa fa-angle-double-right', class: ''},
+        //    {path: '/#', title: 'Clocking Report', icon: 'fa fa-angle-double-right', class: ''},
+         //   {path: '/#', title: 'Occurrence Book', icon: 'fa fa-angle-double-right', class: ''},
+        //    {path: '/#', title: 'Back Fill', icon: 'fa fa-angle-double-right', class: ''},
         ]
     }
 
@@ -68,8 +68,14 @@ export const ROUTES: RouteInfo[] = [
 })
 
 export class SidebarComponent implements OnInit {
+         // userDisplayName = '';
     public menuItems: any[];
+
     ngOnInit() {
         this.menuItems = ROUTES.filter(menuItem => menuItem);
+       // this.userDisplayName = sessionStorage.getItem('loggedUser');
+
+         
+
     }
 }

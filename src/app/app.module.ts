@@ -19,6 +19,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+import { DataTablesModule } from 'angular-datatables';
 
 
 import {AlertService} from './_services/alert.service';
@@ -45,7 +46,7 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA],
     BrowserAnimationsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(AppRoutes,{
-      useHash: true
+      useHash: true,onSameUrlNavigation: 'reload'
     }),
     SidebarModule,
     NavbarModule,
@@ -53,7 +54,8 @@ schemas: [ CUSTOM_ELEMENTS_SCHEMA],
     FooterModule,
     FixedPluginModule,
     PdfViewerModule,
-   // PdfViewerComponent 
+   // PdfViewerComponent,
+   DataTablesModule,
    ToastyModule
   ],
   exports:[

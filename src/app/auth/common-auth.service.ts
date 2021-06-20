@@ -13,7 +13,7 @@ export class CommonAuthService {
 
   registerUser(form: any){
     console.log(form.value);
-    return this.http.post('${environment.apiUrl}register', form.value);
+    return this.http.post(`${environment.apiUrl}/register`, form.value);
   }
 
    isAuthonticated(){
@@ -40,7 +40,7 @@ export class CommonAuthService {
   }
 
   logout(token: any): Observable<any>{
-    return this.http.post('${environment.apiUrl}/logout', {'token': token});
+    return this.http.post(`${environment.apiUrl}/logout`, {'token': token});
     //return result;
   }
 }

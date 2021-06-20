@@ -30,7 +30,7 @@ import {SiteCreateComponent  }       from '../../pages/sites/site-create/site-cr
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {PdfViewerModule } from 'ng2-pdf-viewer';
-
+import { DataTablesModule } from 'angular-datatables';
 import { ToastyModule } from 'ng2-toasty';
 
 @NgModule({
@@ -40,7 +40,8 @@ import { ToastyModule } from 'ng2-toasty';
     FormsModule,
     NgbModule,
     PdfViewerModule,
-    ToastyModule
+    ToastyModule,
+    DataTablesModule,
   ],
   declarations: [
     DashboardComponent,

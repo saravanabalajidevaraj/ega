@@ -10,6 +10,8 @@ import { UserRestService } from '../user-rest.service';
 })
 export class UserEditComponent implements OnInit {
   updateUser: FormGroup;  
+  userList: Array<object> = [];
+
   @Input() data:any;
   constructor(public route: ActivatedRoute, public userRest: UserRestService, public router: Router) { }
 
@@ -17,6 +19,7 @@ export class UserEditComponent implements OnInit {
      let id = this.route.snapshot.params.id;
      this.userRest.editUser(id).subscribe(
       (response) => {
+
         this.updateUser.patchValue({
           'name': response.user.name,
           'email':response.user.email
@@ -44,11 +47,25 @@ export class UserEditComponent implements OnInit {
     let id = this.route.snapshot.params.id;
     this.userRest.updateUser(this.updateUser,id).subscribe(
       (response) => {
-        console.log(response),
-        this.router.navigate(['users'])
+
+           console.log(response),
+      
+      // this.userRest.getUsers();
+
+      //this.router.navigate(['users']);
+
+      //   this.ngOnInit()
+
+       
+
+
+        this.router.navigateByUrl('maps', {skipLocationChange: true}).then(()=>
+      this.router.navigate(['users']));
+      //this.redirectTo('users');
       },
       (error) => console.log(error),
-      () => console.log('completed') 
+      () => console.log('completed'),
+       
     );
   }
 }
