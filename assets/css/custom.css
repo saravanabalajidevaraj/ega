@@ -98,7 +98,8 @@ font-size: 28px;
     font-family: 'Poppins';
 }
 .inlineform{
-  margin-left: 40px!important;
+  margin-left: 21px!important;
+  max-width: 900px;
 }
 
 .inlineform .form-group {
