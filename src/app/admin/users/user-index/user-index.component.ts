@@ -12,7 +12,7 @@ export class UserIndexComponent implements OnInit  {
   userList: Array<object> = [];
 dtOptions: DataTables.Settings = {};
 dtTrigger: Subject<any> = new Subject<any>();
-  constructor(private route: ActivatedRoute, private userRest: UserRestService, private router: Router,private http: HttpClient) { }
+  constructor(public route: ActivatedRoute, public userRest: UserRestService, private router: Router,private http: HttpClient) { }
 
   ngOnInit() {
 
